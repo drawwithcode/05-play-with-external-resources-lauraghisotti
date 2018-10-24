@@ -1,4 +1,5 @@
 var myPop;
+var myCheer;
 var analyzer;
 var myMic;
 
@@ -11,7 +12,8 @@ var state = 0;
 
 function preload(){
   // put preload code here
-  myPop = loadSound("./assets/128902__joshenanigans__bubble-popping-noise-30-sec.wav");
+  myPop = loadSound("./assets/bip.wav");
+  myCheer= loadSound("./assets/cheers.wav");
   myMic= loadImage("./assets/mic.png");
 }
 
@@ -80,6 +82,7 @@ function mousePressed() {
 
     background(242, 100, 25);
     push();
+    myPop.play();
     soundFile.amp(0.8);
     imageMode(CENTER);
     translate(width/2, height/2);
@@ -122,6 +125,7 @@ function mousePressed() {
 
   else if (state === 2) {
     background(85, 221, 224);
+    myCheer.play();
     push()
     imageMode(CENTER);
     translate(width/2, height/2);
@@ -137,7 +141,7 @@ function mousePressed() {
     push();
     textAlign(CENTER);
     translate(width/2, 0);
-      text('here you go, thanks for recording', 0, height-50);
+      text('here you go, thanks for recording!', 0, height-50);
       pop();
     state++;
   }
